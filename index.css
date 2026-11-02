@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-handwriting: 'Caveat', cursive, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* Candle flame flicker animation */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.9));
+  }
+  25% {
+    transform: scale(1.1, 0.95) rotate(2deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 1));
+  }
+  50% {
+    transform: scale(0.92, 1.05) rotate(-2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 7px rgba(251, 146, 60, 0.85));
+  }
+  75% {
+    transform: scale(1.05, 1) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 9px rgba(251, 191, 36, 0.95));
+  }
+}
+
+.animate-flicker {
+  animation: flicker 1.2s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+/* Smoke puff for blown candle */
+@keyframes smoke-rise {
+  0% {
+    opacity: 0.8;
+    transform: translateY(0) scale(0.6);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-14px) scale(1.1) translateX(4px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1.5) translateX(-6px);
+  }
+}
+
+.animate-smoke {
+  animation: smoke-rise 1s ease-out forwards;
+}
+
+/* Gentle balloon floating sway */
+@keyframes float-sway {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.animate-float-sway {
+  animation: float-sway 4s ease-in-out infinite;
+}
+
+/* Pulse glow for age digits */
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 24px currentColor);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
